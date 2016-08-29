@@ -44,7 +44,13 @@ development:
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 
-
+test:
+  adapter: postgresql
+  encoding: utf-8
+  pool: 5
+  database: receta_test
+  username: receta
+  password: receta
 production:
   adapter: postgresql
   encoding: utf-8
