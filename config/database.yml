@@ -45,3 +45,18 @@ development:
 # Do not set this db to the same as development or production.
 
 
+production:
+  adapter: postgresql
+  encoding: utf-8
+  pool: 5
+  database: receta_prod
+  username: receta
+  password: receta
+
+staging:
+  adapter: postgresql
+  encoding: utf-8
+  pool: 5
+  database: receta_stage
+  username: receta
+  password: receta
