@@ -17,3 +17,7 @@
 
 # Ignore bower component
 #vendor/assets/bower_components/
+
+
+#ide config
+.idea/
