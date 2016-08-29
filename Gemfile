@@ -43,6 +43,7 @@ end
 # gem 'debugger', group: [:development, :test]
 gem 'sass', '3.2.19'
 gem 'bower-rails'
+gem 'angular-rails-templates'
 group :test, :development do
   gem "rspec-rails", "~> 2.0"
   gem "factory_girl_rails", "~> 4.0"
