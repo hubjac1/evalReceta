@@ -10,6 +10,8 @@ feature "Creating, editing, and deleting a recipe", js: true do
 
     click_on "Save"
 
+    expect(page).to have_content("Receta")
+    expect(page).to have_content("The simplest cookbook")
     expect(page).to have_content("Baked Brussel Sprouts")
     expect(page).to have_content("Slather in oil")
 
