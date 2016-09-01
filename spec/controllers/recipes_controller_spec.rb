@@ -41,6 +41,13 @@ describe RecipesController do
       end
     end
 
+    context "when no filter find all" do
+      let(:keywords) {  }
+      it 'should return all results' do
+        expect(results.size).to eq(4)
+      end
+    end
+
   end
 
   describe "show" do

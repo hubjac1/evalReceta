@@ -14,9 +14,15 @@ describe "RecipesController", ->
       httpBackend = $httpBackend
       routeParams = $routeParams
       routeParams.keywords = keywords
+      console.log('HELLO')
 
-      if results
+      if keywords
+        console.log(keywords)
         request = new RegExp("\/recipes.*keywords=#{keywords}")
+        httpBackend.expectGET(request).respond(results)
+      else
+        console.log('NO keywords')
+        request = new RegExp("\/recipes.*")
         httpBackend.expectGET(request).respond(results)
 
       ctrl        = $controller('RecipesController',
@@ -32,10 +38,23 @@ describe "RecipesController", ->
 
   describe 'controller initialization', ->
     describe 'when no keywords present', ->
-      beforeEach(setupController())
+      keywords = undefined
+      recipes = [
+        {
+          id: 2
+          name: 'Baked Potatoes'
+        },
+        {
+          id: 4
+          name: 'Potatoes Au Gratin'
+        }
+      ]
+      beforeEach ->
+        setupController(keywords,recipes)
+        httpBackend.flush()
 
-      it 'defaults to no recipes', ->
-        expect(scope.recipes).toEqualData([])
+      it 'calls the back-end', ->
+        expect(scope.recipes).toEqualData(recipes)
 
     describe 'with keywords', ->
       keywords = 'foo'
@@ -59,6 +78,7 @@ describe "RecipesController", ->
   describe 'search()', ->
     beforeEach ->
       setupController()
+      httpBackend.flush()
 
     it 'redirects to itself with a keyword param', ->
       keywords = 'foo'
