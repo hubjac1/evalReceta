@@ -11,8 +11,16 @@ feature "Looking up recipes", js: true do
     visit '/'
     fill_in "keywords", with: "baked"
     click_on "Search"
-
+    expect(page).to have_content("Receta")
+    expect(page).to have_content("The simplest cookbook")
+    expect(page).to have_content("Results")
     expect(page).to have_content("Baked Potato")
     expect(page).to have_content("Baked Brussel Sprouts")
+  end
+  scenario "No result found" do
+    visit '/'
+    fill_in "keywords", with: "toto"
+    click_on "Search"
+    expect(page).to have_content("No result found.")
   end
 end

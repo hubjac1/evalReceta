@@ -14,14 +14,11 @@ describe "RecipesController", ->
       httpBackend = $httpBackend
       routeParams = $routeParams
       routeParams.keywords = keywords
-      console.log('HELLO')
 
       if keywords
-        console.log(keywords)
         request = new RegExp("\/recipes.*keywords=#{keywords}")
         httpBackend.expectGET(request).respond(results)
       else
-        console.log('NO keywords')
         request = new RegExp("\/recipes.*")
         httpBackend.expectGET(request).respond(results)
 
