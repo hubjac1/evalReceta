@@ -1,3 +1,11 @@
+<header class="row">
+  <h1 class="text-center col-md-6 col-md-offset-3">
+    <a class="" href="#">
+      Receta
+    </a>
+    <small>The simplest cookbook</small>
+  </h1>
+</header>
 <div ng-app="receta">
   <div class="view-container">
     <div ng-view class="view-frame animate-view"></div>
@@ -10,7 +18,7 @@
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-  ga('create', <%= @google_analytics_id %>, 'auto');
+  ga('create', '<%= @google_analytics_id %>', 'auto');
   ga('send', 'pageview');
 
 </script>
