@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.2'
+gem 'rails', '4.2'
+
 
 # Use postgresql as the database for Active Record
 gem 'pg'
@@ -53,6 +54,8 @@ group :test, :development do
   gem 'teaspoon-jasmine'
   gem 'phantomjs'
 end
+
+gem "codeclimate-test-reporter", group: :test, require: nil
 
 gem "foreman"
 group :production, :staging do
